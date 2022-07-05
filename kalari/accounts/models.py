@@ -3,13 +3,13 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    user_type = models.CharField(max_length=15,default='admin')
+    user_type = models.CharField(max_length=15, default='admin')
+
     def __str__(self):
         return self.username
 
 
 class mykalari(models.Model):
-
     address = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
